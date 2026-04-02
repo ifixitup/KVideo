@@ -13,6 +13,7 @@ interface DesktopOverlayWrapperProps {
     onSkipBackward: () => void;
     isTransitioningToNextEpisode?: boolean;
     showMoreMenu: boolean;
+    isPremium?: boolean;
     isProxied: boolean;
     onToggleMoreMenu: () => void;
     onMoreMenuMouseEnter: () => void;
@@ -43,6 +44,7 @@ export function DesktopOverlayWrapper({
     onSkipBackward,
     isTransitioningToNextEpisode = false,
     showMoreMenu,
+    isPremium = false,
     isProxied,
     onToggleMoreMenu,
     onMoreMenuMouseEnter,
@@ -93,6 +95,7 @@ export function DesktopOverlayWrapper({
             onSkipForward={onSkipForward}
             onSkipBackward={onSkipBackward}
             showMoreMenu={showMoreMenu}
+            isPremium={isPremium}
             isProxied={isProxied}
             onToggleMoreMenu={onToggleMoreMenu}
             onMoreMenuMouseEnter={onMoreMenuMouseEnter}

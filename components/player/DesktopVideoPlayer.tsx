@@ -60,7 +60,7 @@ export function DesktopVideoPlayer({
   onResolutionDetected,
 }: DesktopVideoPlayerProps) {
   const { refs, data, actions } = useDesktopPlayerState();
-  const { fullscreenType: settingsFullscreenType } = usePlayerSettings();
+  const { fullscreenType: settingsFullscreenType } = usePlayerSettings(isPremium);
   const isIOS = useIsIOS();
   const isMobile = useIsMobile();
   const [seekStepSeconds, setSeekStepSeconds] = React.useState(DEFAULT_SEEK_STEP_SECONDS);
@@ -160,6 +160,7 @@ export function DesktopVideoPlayer({
   useHlsPlayer({
     videoRef: refs.videoRef,
     src,
+    isPremium,
     autoPlay: shouldAutoPlay
   });
 
@@ -206,6 +207,7 @@ export function DesktopVideoPlayer({
     currentTime,
     duration,
     isPlaying,
+    isPremium,
     totalEpisodes,
     currentEpisodeIndex,
     onNextEpisode,
@@ -335,6 +337,7 @@ export function DesktopVideoPlayer({
             isTransitioningToNextEpisode={isTransitioningToNextEpisode}
             // More Menu Props
             showMoreMenu={data.showMoreMenu}
+            isPremium={isPremium}
             isProxied={src.includes('/api/proxy')}
             onToggleMoreMenu={() => actions.setShowMoreMenu(!data.showMoreMenu)}
             onMoreMenuMouseEnter={() => {

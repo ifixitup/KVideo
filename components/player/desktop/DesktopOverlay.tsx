@@ -23,6 +23,7 @@ interface DesktopOverlayProps {
     onSkipForward: () => void;
     onSkipBackward: () => void;
     showMoreMenu: boolean;
+    isPremium?: boolean;
     isProxied: boolean;
     onToggleMoreMenu: () => void;
     onMoreMenuMouseEnter: () => void;
@@ -62,6 +63,7 @@ export function DesktopOverlay({
     onSkipBackward,
     showControls,
     showMoreMenu,
+    isPremium = false,
     isProxied,
     onToggleMoreMenu,
     onMoreMenuMouseEnter,
@@ -89,6 +91,7 @@ export function DesktopOverlay({
             <div className={`absolute top-8 left-6 z-40 transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`} style={{ pointerEvents: showControls ? 'auto' : 'none' }}>
                 <DesktopMoreMenu
                     showMoreMenu={showMoreMenu}
+                    isPremium={isPremium}
                     isProxied={isProxied}
                     onToggleMoreMenu={onToggleMoreMenu}
                     onMouseEnter={onMoreMenuMouseEnter}
